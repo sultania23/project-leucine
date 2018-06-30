@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="angularjs">
+<head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <script src="javascripts/app.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+
+</head>
+<body >
+<div ng-controller="myController">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-sm-3 col-md-3 col-lg-3" >
+                    <input type="file" file-model="myFile">
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                <span style="font-style: normal;text-decoration: #1e282c;text-font-effect:outline;padding-left: 10%;padding-bottom: 2%">
+                    <p id="ProgressNumber"></p>
+                </span>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <button class="btn-success" ng-click="uploadFile()">UPLOAD New FILE</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <table class="table">
+
+                <tr>
+                    <th>file name</th>
+                    <th>Delete</th>
+                    <th>Rename</th>
+                    <th>Download</th>
+                </tr>
+
+                <tbody>
+                    <tr ng-repeat="item in data">
+                        <td>{{item.name}}</td>
+                        <td >
+                            <button class="btn-danger" ng-click="delete_file(item)">Delete</button>
+                        </td>
+                        <td>
+                            <input type="text" ng-model="item.rename">
+                            <button class="rename" ng-click="rename(item)">Rename</button>
+                        </td>
+                        <td>
+                            <!--<a target="_self" href ng-click="download_file(item)" >Download</a>-->
+                            <a href="/download?name={{item.name}}" download="fileName">download</a>
+                            <!--<button class="btn-primary"  href ng-click="download_file(item) ">Download</button>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
