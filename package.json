@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "aws-sdk": "^2.265.1",
+    "aws-sdk": "^2.814.0",
     "azure-storage": "^2.10.0",
     "body-parser": "^1.18.3",
     "bootstrap": "^3.3.7",
